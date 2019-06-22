@@ -16,8 +16,33 @@ module.exports = {
   module: {
     rules: [
       {
-        // 拡張子 .js の場合
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+      },
+      {
+        enforce: "pre",
         test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader"
+      },
+      {
+        // Babel を利用する
+        loader: "babel-loader",
+        // Babel のオプションを指定する
+        options: {
+          presets: [
+            // プリセットを指定することで、ES2019 を ES5 に変換
+            "@babel/preset-env",
+            // React の JSX を解釈
+            "@babel/react"
+          ]
+        }
+      },
+      {
+        // 拡張子 .js の場合
+        test: /\.js$/,
         use: [
           {
             // Babel を利用する
@@ -33,8 +58,15 @@ module.exports = {
             }
           }
         ]
-      }
+      },
     ]
+  },
+  resolve: {
+    modules: [
+      path.join(__dirname, "./src/js"),
+      "node_modules",
+    ],
+    extensions: ['.js', '.jsx'],
   },
   // watchモードを有効にする
   watch: true,

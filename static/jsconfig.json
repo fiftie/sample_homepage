@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "pages": ["src/js/pages/*"],
+      "common": ["src/js/common/*"],
+    }
+  },
+  "exclude": ["node_modules"]
+}
