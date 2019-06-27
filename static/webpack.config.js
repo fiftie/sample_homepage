@@ -15,18 +15,18 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader",
-      },
-      {
-        enforce: "pre",
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader"
-      },
+      // {
+      //   enforce: "pre",
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: "eslint-loader",
+      // },
+      // {
+      //   enforce: "pre",
+      //   test: /\.jsx$/,
+      //   exclude: /node_modules/,
+      //   loader: "eslint-loader"
+      // },
       {
         // Babel を利用する
         loader: "babel-loader",
